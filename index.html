@@ -65,7 +65,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 3rem 1.5rem;
+            padding: 4rem 1.5rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -143,41 +143,123 @@
             50% { transform: translate(-50%, -50%) scale(1.15); }
         }
 
-        /* Galería */
+        /* Galería con Animaciones mejoradas */
         .gallery-main {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1100px;
             padding: 10px;
         }
 
         .gallery-item {
             overflow: hidden;
-            border: 8px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: all 0.5s ease;
+            border: 6px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             background: white;
+            opacity: 0;
+            transform: translateY(40px) scale(0.9);
+            filter: blur(10px);
+        }
+
+        .gallery-item.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
+            border-color: var(--soft-gold);
+            z-index: 10;
         }
         
         .gallery-item img {
-            width: 100%; height: 320px; object-fit: cover;
+            width: 100%; height: 280px; object-fit: cover;
+            transition: transform 1.2s ease;
         }
 
-        /* Reveal Efectos */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-blur { opacity: 0; filter: blur(8px); transition: all 1.2s ease; }
-        .reveal-blur.active { opacity: 1; filter: blur(0); }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Secciones con Imagen - Parallax y Fade */
+        .photo-divider {
+            width: 100%;
+            height: 400px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            opacity: 0;
+            transform: scale(1.1);
+            filter: grayscale(30%);
+            transition: opacity 2s ease, transform 2s ease, filter 2s ease;
+        }
+
+        .photo-divider.active {
+            opacity: 1;
+            transform: scale(1);
+            filter: grayscale(0%);
+        }
+
+        /* Reveal Efectos Mejorados */
+        .reveal { 
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: opacity 0.8s ease, transform 0.8s ease; 
+        }
+        .reveal.active { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+
+        .reveal-left { 
+            opacity: 0; 
+            transform: translateX(-50px); 
+            transition: opacity 0.8s ease, transform 0.8s ease; 
+        }
+        .reveal-left.active { 
+            opacity: 1; 
+            transform: translateX(0); 
+        }
+
+        .reveal-right { 
+            opacity: 0; 
+            transform: translateX(50px); 
+            transition: opacity 0.8s ease, transform 0.8s ease; 
+        }
+        .reveal-right.active { 
+            opacity: 1; 
+            transform: translateX(0); 
+        }
+
+        .reveal-blur { 
+            opacity: 0; 
+            filter: blur(15px); 
+            transition: opacity 1.2s ease, filter 1.2s ease; 
+        }
+        .reveal-blur.active { 
+            opacity: 1; 
+            filter: blur(0); 
+        }
 
         .mint-bg { background-color: var(--mint-green); }
         .dark-mint-bg { background-color: var(--deep-mint); }
         
         .divider-gold {
-            width: 100px; height: 1px;
+            width: 0; height: 1px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
             margin: 1.5rem auto;
+            transition: width 1s ease 0.3s;
+        }
+        .reveal.active .divider-gold {
+            width: 150px;
         }
 
         /* Ajustes de fuentes específicas */
@@ -189,6 +271,7 @@
             .txt-title-lg { font-size: 2.5rem; }
             .txt-script-lg { font-size: 3.2rem; }
             .txt-subtitle { font-size: 1.1rem; }
+            .photo-divider { height: 300px; background-attachment: scroll; }
         }
     </style>
 </head>
@@ -217,8 +300,8 @@
             <h1 class="txt-title-lg font-title text-white mb-4 text-glow-strong animate__animated animate__zoomInDown" id="main-name">
                 María Fernanda
             </h1>
-            <p class="txt-script-lg font-script text-white text-glow-strong mb-8 animate__animated animate__fadeInUp">Mis XV Años</p>
-            <div class="inline-block px-6 py-3 border-y border-white/40 animate__animated animate__fadeIn">
+            <p class="txt-script-lg font-script text-white text-glow-strong mb-8 animate__animated animate__fadeInUp animate__delay-1s">Mis XV Años</p>
+            <div class="inline-block px-6 py-3 border-y border-white/40 animate__animated animate__fadeIn animate__delay-2s">
                 <p class="text-lg tracking-[0.5em] font-medium uppercase text-white text-glow-strong">04 • JULIO • 2026</p>
             </div>
         </div>
@@ -226,9 +309,9 @@
 
     <!-- FECHA -->
     <section class="reveal-blur">
-        <h2 class="font-title text-2xl md:text-3xl mb-2 tracking-[0.3em] uppercase">Reserva la Fecha</h2>
+        <h2 class="font-title text-2xl md:text-3xl mb-2 tracking-[0.3em] uppercase reveal">Reserva la Fecha</h2>
         <div class="divider-gold"></div>
-        <p class="font-script text-5xl text-gold mb-8">Sábado 04 de Julio, 2026</p>
+        <p class="font-script text-5xl text-gold mb-8 reveal">Sábado 04 de Julio, 2026</p>
         
         <div class="calendar reveal">
             <p class="font-title text-xs mb-4 uppercase tracking-widest text-gold font-bold">Julio 2026</p>
@@ -243,35 +326,41 @@
             </div>
         </div>
 
-        <div id="countdown" class="flex gap-6 md:gap-12 mt-12 justify-center reveal">
-            <div class="text-center">
-                <span id="days" class="text-4xl md:text-5xl font-title text-gold">00</span>
-                <p class="text-[9px] uppercase tracking-[0.3em] mt-2 font-bold text-deep-mint">Días</p>
-            </div>
-            <div class="text-center">
-                <span id="hours" class="text-4xl md:text-5xl font-title text-gold">00</span>
-                <p class="text-[9px] uppercase tracking-[0.3em] mt-2 font-bold text-deep-mint">Hrs</p>
-            </div>
-            <div class="text-center">
-                <span id="minutes" class="text-4xl md:text-5xl font-title text-gold">00</span>
-                <p class="text-[9px] uppercase tracking-[0.3em] mt-2 font-bold text-deep-mint">Min</p>
+        <div class="mt-12">
+            <p class="font-title text-xs tracking-[0.4em] uppercase text-deep-mint opacity-70 mb-4 animate-pulse reveal">Faltan</p>
+            <div id="countdown" class="flex gap-6 md:gap-12 justify-center reveal">
+                <div class="text-center">
+                    <span id="days" class="text-4xl md:text-5xl font-title text-gold">00</span>
+                    <p class="text-[9px] uppercase tracking-[0.3em] mt-2 font-bold text-deep-mint">Días</p>
+                </div>
+                <div class="text-center">
+                    <span id="hours" class="text-4xl md:text-5xl font-title text-gold">00</span>
+                    <p class="text-[9px] uppercase tracking-[0.3em] mt-2 font-bold text-deep-mint">Hrs</p>
+                </div>
+                <div class="text-center">
+                    <span id="minutes" class="text-4xl md:text-5xl font-title text-gold">00</span>
+                    <p class="text-[9px] uppercase tracking-[0.3em] mt-2 font-bold text-deep-mint">Min</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- FOTO TRANSICIÓN 1 - Animada con Parallax -->
+    <div class="photo-divider" style="background-image: url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg');"></div>
+
     <!-- PADRES -->
-    <section class="reveal bg-stone-50">
+    <section class="bg-stone-50 overflow-hidden">
         <div class="max-w-3xl px-6">
-            <p class="text-3xl md:text-4xl font-script leading-relaxed mb-12 italic">
+            <p class="text-3xl md:text-4xl font-script leading-relaxed mb-12 italic reveal">
                 "Hoy celebro la alegría de vivir, el amor de mi familia y la bendición de mis amigos."
             </p>
             <div class="grid md:grid-cols-2 gap-8 text-center">
-                <div class="p-8 bg-white shadow-lg rounded-2xl border-t-4 border-gold">
+                <div class="p-8 bg-white shadow-lg rounded-2xl border-t-4 border-gold reveal-left">
                     <h4 class="font-title text-[10px] text-gold tracking-[0.3em] mb-4 uppercase font-bold">Mis Padres</h4>
                     <p class="text-lg font-semibold text-deep-mint">Christopher Serrano Corona</p>
                     <p class="text-lg font-semibold text-deep-mint">Patricia Paredes Sánchez</p>
                 </div>
-                <div class="p-8 bg-white shadow-lg rounded-2xl border-t-4 border-gold">
+                <div class="p-8 bg-white shadow-lg rounded-2xl border-t-4 border-gold reveal-right">
                     <h4 class="font-title text-[10px] text-gold tracking-[0.3em] mb-4 uppercase font-bold">Mis Padrinos</h4>
                     <p class="text-lg font-semibold text-deep-mint">Daniel Dimas Ponce</p>
                     <p class="text-lg font-semibold text-deep-mint">Xóchitl Ponce Corona</p>
@@ -280,28 +369,31 @@
         </div>
     </section>
 
-    <!-- GALERÍA -->
+    <!-- GALERÍA - Con animaciones de entrada y hover -->
     <section class="reveal-blur">
-        <h3 class="font-title text-xl md:text-2xl uppercase tracking-[0.4em] mb-12">Galería de Momentos</h3>
+        <h3 class="font-title text-xl md:text-2xl uppercase tracking-[0.4em] mb-12 reveal">Galería</h3>
         <div class="gallery-main">
-            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="1"></div>
-            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg" alt="2"></div>
-            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="3"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="María Fernanda"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg" alt="XV Años"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Celebración"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="María Fernanda 2" style="filter: brightness(0.9);"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg" alt="XV Años 2" style="filter: brightness(0.9);"></div>
+            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Celebración 2" style="filter: brightness(0.9);"></div>
         </div>
     </section>
 
     <!-- UBICACIONES -->
-    <section class="reveal-blur mint-bg text-white">
-        <h3 class="font-title text-xl text-white mb-12 uppercase tracking-widest">Ubicaciones</h3>
+    <section class="mint-bg text-white">
+        <h3 class="font-title text-xl text-white mb-12 uppercase tracking-widest reveal">Ubicaciones</h3>
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl w-full">
-            <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20">
+            <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 reveal-left">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/church.png" class="w-10 h-10 mx-auto mb-4" alt="Church">
                 <h4 class="font-title text-gold mb-2 uppercase text-[10px] tracking-widest font-bold">Ceremonia</h4>
                 <p class="text-3xl font-bold mb-1">17:30 H</p>
                 <p class="text-sm opacity-90 mb-6 italic">Santuario del Carmen</p>
                 <a href="https://www.google.com/maps?q=Templo+de+Nuestra+Se%C3%B1ora+del+Carmen,+Quer%C3%A9taro" target="_blank" class="btn-princess !text-[10px] !py-2">Ver Mapa</a>
             </div>
-            <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20">
+            <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 reveal-right">
                 <img src="https://img.icons8.com/ios-filled/50/ffffff/castle.png" class="w-10 h-10 mx-auto mb-4" alt="Reception">
                 <h4 class="font-title text-gold mb-2 uppercase text-[10px] tracking-widest font-bold">Recepción</h4>
                 <p class="text-3xl font-bold mb-1">19:30 H</p>
@@ -314,14 +406,14 @@
     <!-- CONFIRMACIÓN -->
     <section class="reveal-blur">
         <div class="max-w-md w-full">
-            <h3 class="font-title text-xl mb-8 uppercase tracking-widest">Mesa de Regalos</h3>
-            <div class="p-8 border border-gold/20 rounded-2xl bg-stone-50 mb-12">
+            <h3 class="font-title text-xl mb-8 uppercase tracking-widest reveal">Sugerencia de Regalos</h3>
+            <div class="p-8 border border-gold/20 rounded-2xl bg-stone-50 mb-12 reveal">
                 <p class="text-[10px] uppercase tracking-widest mb-6 font-bold text-deep-mint">LIVERPOOL • COD: 51986769</p>
                 <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51986769" target="_blank" class="btn-princess">Ver Mesa</a>
             </div>
 
-            <h3 class="font-title text-xl mb-6 uppercase tracking-widest">Pases</h3>
-            <div class="p-10 border-2 border-mint-green rounded-3xl bg-white shadow-xl">
+            <h3 class="font-title text-xl mb-6 uppercase tracking-widest reveal">Pases</h3>
+            <div class="p-10 border-2 border-mint-green rounded-3xl bg-white shadow-xl reveal">
                 <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-4 font-bold">Invitados</p>
                 <div class="text-6xl font-title mb-8 text-deep-mint" id="display-pases">02</div>
                 <button onclick="confirmar()" class="btn-princess w-full">Confirmar Asistencia</button>
@@ -329,9 +421,13 @@
         </div>
     </section>
 
+    <!-- FOTO FINAL - Con Efecto de Entrada -->
+    <div class="photo-divider" style="background-image: url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg'); height: 350px;"></div>
+
     <footer class="py-12 dark-mint-bg text-white text-center">
-        <p class="font-script text-4xl text-soft-gold mb-4">¡Te espero!</p>
-        <p class="text-[9px] tracking-[0.4em] opacity-60 uppercase">María Fernanda • 2026</p>
+        <p class="font-script text-5xl text-soft-gold mb-4 reveal">¡Te espero!</p>
+        <div class="divider-gold opacity-30"></div>
+        <p class="text-[9px] tracking-[0.4em] opacity-60 uppercase reveal">María Fernanda • 2026</p>
     </footer>
 
     <script>
@@ -352,17 +448,33 @@
             obtenerPasesDeUrl();
         }
 
+        // Observer para activar animaciones al hacer scroll con delays para la galería
+        const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
-        }, { threshold: 0.1 });
+            entries.forEach((e, index) => { 
+                if (e.isIntersecting) {
+                    // Si es un item de galería, aplicamos un pequeño delay escalonado
+                    if (e.target.classList.contains('gallery-item')) {
+                        setTimeout(() => {
+                            e.target.classList.add('active');
+                        }, (index % 3) * 150); // Delay basado en su posición en la fila
+                    } else {
+                        e.target.classList.add('active'); 
+                    }
+                }
+            });
+        }, observerOptions);
 
-        document.querySelectorAll('.reveal, .reveal-blur, .gallery-item').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-blur, .gallery-item, .photo-divider').forEach(el => observer.observe(el));
 
         const targetDate = new Date('July 4, 2026 17:30:00').getTime();
         function updateCountdown() {
             const now = new Date().getTime();
             const diff = targetDate - now;
-            if (diff <= 0) return;
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = "<p class='font-title text-gold tracking-widest'>¡Llegó el día!</p>";
+                return;
+            }
             document.getElementById('days').innerText = Math.floor(diff / 86400000).toString().padStart(2, '0');
             document.getElementById('hours').innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
             document.getElementById('minutes').innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
