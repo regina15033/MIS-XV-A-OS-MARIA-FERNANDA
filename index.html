@@ -73,18 +73,21 @@
 
         /* Portada */
         .page-header {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.4)), url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top center; 
             color: var(--white);
-            animation: zoomBackground 25s infinite alternate;
+            animation: zoomBackground 20s infinite alternate linear;
         }
 
         @keyframes zoomBackground {
-            from { transform: scale(1); }
-            to { transform: scale(1.1); }
+            from { background-scale: 1; background-position: top center; }
+            to { transform: scale(1.05); }
         }
 
         .text-glow-strong {
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.8);
         }
 
         .btn-princess {
@@ -108,33 +111,42 @@
             transform: translateY(-3px);
         }
 
-        /* Calendario */
+        /* Calendario - Reducción del 15% adicional */
         .calendar {
             background: white;
-            padding: 20px;
+            padding: 15px; 
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(74, 93, 58, 0.08);
+            box-shadow: 0 8px 25px rgba(74, 93, 58, 0.08);
             display: inline-block;
             border: 1px solid var(--soft-gold);
+            transform: scale(0.85); /* Reducción visual directa del 15% */
         }
 
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 8px;
-            font-size: 0.8rem;
+            gap: 4px; 
+            font-size: 0.7rem;
         }
         .day-name { font-weight: bold; color: var(--gold); margin-bottom: 5px; }
-        .calendar-day { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
-        .special-day { color: var(--gold); font-weight: bold; position: relative; }
+        .calendar-day { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; }
+        
+        /* Estilo para el día 4: Numero Blanco */
+        .special-day { 
+            color: white !important; 
+            font-weight: bold; 
+            position: relative; 
+            z-index: 10;
+        }
         
         .heart-mark {
             position: absolute;
             color: var(--gold);
             font-size: 1.8rem;
-            top: 45%; left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0.35;
+            opacity: 0.9; /* Más sólido para que el blanco resalte */
+            z-index: -1;
             animation: heartbeat 1.2s infinite ease-in-out;
         }
 
@@ -143,7 +155,7 @@
             50% { transform: translate(-50%, -50%) scale(1.15); }
         }
 
-        /* Galería con Animaciones mejoradas */
+        /* Galería */
         .gallery-main {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -170,23 +182,12 @@
             filter: blur(0);
         }
 
-        .gallery-item:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.3);
-            border-color: var(--soft-gold);
-            z-index: 10;
-        }
-        
         .gallery-item img {
             width: 100%; height: 280px; object-fit: cover;
             transition: transform 1.2s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Secciones con Imagen - Parallax y Fade */
+        /* Secciones con Imagen */
         .photo-divider {
             width: 100%;
             height: 400px;
@@ -208,7 +209,7 @@
             filter: grayscale(0%);
         }
 
-        /* Reveal Efectos Mejorados */
+        /* Reveal Efectos */
         .reveal { 
             opacity: 0; 
             transform: translateY(50px); 
@@ -217,26 +218,6 @@
         .reveal.active { 
             opacity: 1; 
             transform: translateY(0); 
-        }
-
-        .reveal-left { 
-            opacity: 0; 
-            transform: translateX(-50px); 
-            transition: opacity 0.8s ease, transform 0.8s ease; 
-        }
-        .reveal-left.active { 
-            opacity: 1; 
-            transform: translateX(0); 
-        }
-
-        .reveal-right { 
-            opacity: 0; 
-            transform: translateX(50px); 
-            transition: opacity 0.8s ease, transform 0.8s ease; 
-        }
-        .reveal-right.active { 
-            opacity: 1; 
-            transform: translateX(0); 
         }
 
         .reveal-blur { 
@@ -259,18 +240,24 @@
             transition: width 1s ease 0.3s;
         }
         .reveal.active .divider-gold {
-            width: 150px;
+            width: 135px; 
         }
 
-        /* Ajustes de fuentes específicas */
+        /* Ajustes de fuentes específicas (Reducidos un 10% adicional en fecha) */
         .txt-title-lg { font-size: 3.5rem; line-height: 1; }
         .txt-script-lg { font-size: 4rem; }
         .txt-subtitle { font-size: 1.5rem; letter-spacing: 0.5em; }
 
+        .date-title { font-size: 1.62rem; } /* -10% de 1.8rem */
+        .date-script { font-size: 4.05rem; } /* -10% de 4.5rem */
+
         @media (max-width: 768px) {
-            .txt-title-lg { font-size: 2.5rem; }
+            .txt-title-lg { font-size: 2.8rem; }
             .txt-script-lg { font-size: 3.2rem; }
-            .txt-subtitle { font-size: 1.1rem; }
+            .date-title { font-size: 1.35rem; }
+            .date-script { font-size: 3.4rem; }
+            .calendar { transform: scale(0.8); } /* Un poco más pequeño en móvil */
+            .page-header { background-position: top center; height: 100vh; }
             .photo-divider { height: 300px; background-attachment: scroll; }
         }
     </style>
@@ -295,7 +282,7 @@
 
     <!-- PORTADA -->
     <section class="page-header">
-        <div class="z-20 px-4">
+        <div class="z-20 px-4 mt-auto mb-20 md:mb-12">
             <h2 class="txt-subtitle mb-4 font-light text-white text-glow-strong animate__animated animate__fadeInDown uppercase">Bienvenidos</h2>
             <h1 class="txt-title-lg font-title text-white mb-4 text-glow-strong animate__animated animate__zoomInDown" id="main-name">
                 María Fernanda
@@ -307,14 +294,14 @@
         </div>
     </section>
 
-    <!-- FECHA -->
-    <section class="reveal-blur">
-        <h2 class="font-title text-2xl md:text-3xl mb-2 tracking-[0.3em] uppercase reveal">Reserva la Fecha</h2>
+    <!-- FECHA - Tamaño reducido -->
+    <section class="reveal-blur !py-8">
+        <h2 class="font-title date-title mb-2 tracking-[0.3em] uppercase reveal">Reserva la Fecha</h2>
         <div class="divider-gold"></div>
-        <p class="font-script text-5xl text-gold mb-8 reveal">Sábado 04 de Julio, 2026</p>
+        <p class="font-script date-script text-gold mb-4 reveal">Sábado 04 de Julio, 2026</p>
         
         <div class="calendar reveal">
-            <p class="font-title text-xs mb-4 uppercase tracking-widest text-gold font-bold">Julio 2026</p>
+            <p class="font-title text-[9px] mb-3 uppercase tracking-widest text-gold font-bold">Julio 2026</p>
             <div class="calendar-grid">
                 <div class="day-name">D</div><div class="day-name">L</div><div class="day-name">M</div><div class="day-name">M</div><div class="day-name">J</div><div class="day-name">V</div><div class="day-name">S</div>
                 <div></div><div></div><div></div><div class="calendar-day">1</div><div class="calendar-day">2</div><div class="calendar-day">3</div>
@@ -326,27 +313,27 @@
             </div>
         </div>
 
-        <div class="mt-12">
-            <p class="font-title text-xs tracking-[0.4em] uppercase text-deep-mint opacity-70 mb-4 animate-pulse reveal">Faltan</p>
-            <div id="countdown" class="flex gap-6 md:gap-12 justify-center reveal">
+        <div class="mt-8">
+            <p class="font-title text-[9px] tracking-[0.4em] uppercase text-deep-mint opacity-70 mb-4 animate-pulse reveal">Faltan</p>
+            <div id="countdown" class="flex gap-6 md:gap-10 justify-center reveal">
                 <div class="text-center">
-                    <span id="days" class="text-4xl md:text-5xl font-title text-gold">00</span>
-                    <p class="text-[9px] uppercase tracking-[0.3em] mt-2 font-bold text-deep-mint">Días</p>
+                    <span id="days" class="text-2xl md:text-3xl font-title text-gold">00</span>
+                    <p class="text-[7px] uppercase tracking-[0.3em] mt-1 font-bold text-deep-mint">Días</p>
                 </div>
                 <div class="text-center">
-                    <span id="hours" class="text-4xl md:text-5xl font-title text-gold">00</span>
-                    <p class="text-[9px] uppercase tracking-[0.3em] mt-2 font-bold text-deep-mint">Hrs</p>
+                    <span id="hours" class="text-2xl md:text-3xl font-title text-gold">00</span>
+                    <p class="text-[7px] uppercase tracking-[0.3em] mt-1 font-bold text-deep-mint">Hrs</p>
                 </div>
                 <div class="text-center">
-                    <span id="minutes" class="text-4xl md:text-5xl font-title text-gold">00</span>
-                    <p class="text-[9px] uppercase tracking-[0.3em] mt-2 font-bold text-deep-mint">Min</p>
+                    <span id="minutes" class="text-2xl md:text-3xl font-title text-gold">00</span>
+                    <p class="text-[7px] uppercase tracking-[0.3em] mt-1 font-bold text-deep-mint">Min</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOTO TRANSICIÓN 1 - Animada con Parallax -->
-    <div class="photo-divider" style="background-image: url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg');"></div>
+    <!-- FOTO TRANSICIÓN 1 -->
+    <div class="photo-divider" style="background-image: url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg'); background-position: center 20%;"></div>
 
     <!-- PADRES -->
     <section class="bg-stone-50 overflow-hidden">
@@ -355,12 +342,12 @@
                 "Hoy celebro la alegría de vivir, el amor de mi familia y la bendición de mis amigos."
             </p>
             <div class="grid md:grid-cols-2 gap-8 text-center">
-                <div class="p-8 bg-white shadow-lg rounded-2xl border-t-4 border-gold reveal-left">
+                <div class="p-8 bg-white shadow-lg rounded-2xl border-t-4 border-gold reveal">
                     <h4 class="font-title text-[10px] text-gold tracking-[0.3em] mb-4 uppercase font-bold">Mis Padres</h4>
                     <p class="text-lg font-semibold text-deep-mint">Christopher Serrano Corona</p>
                     <p class="text-lg font-semibold text-deep-mint">Patricia Paredes Sánchez</p>
                 </div>
-                <div class="p-8 bg-white shadow-lg rounded-2xl border-t-4 border-gold reveal-right">
+                <div class="p-8 bg-white shadow-lg rounded-2xl border-t-4 border-gold reveal">
                     <h4 class="font-title text-[10px] text-gold tracking-[0.3em] mb-4 uppercase font-bold">Mis Padrinos</h4>
                     <p class="text-lg font-semibold text-deep-mint">Daniel Dimas Ponce</p>
                     <p class="text-lg font-semibold text-deep-mint">Xóchitl Ponce Corona</p>
@@ -369,16 +356,13 @@
         </div>
     </section>
 
-    <!-- GALERÍA - Con animaciones de entrada y hover -->
+    <!-- GALERÍA -->
     <section class="reveal-blur">
         <h3 class="font-title text-xl md:text-2xl uppercase tracking-[0.4em] mb-12 reveal">Galería</h3>
         <div class="gallery-main">
             <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="María Fernanda"></div>
             <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg" alt="XV Años"></div>
             <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Celebración"></div>
-            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="María Fernanda 2" style="filter: brightness(0.9);"></div>
-            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg" alt="XV Años 2" style="filter: brightness(0.9);"></div>
-            <div class="gallery-item"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Celebración 2" style="filter: brightness(0.9);"></div>
         </div>
     </section>
 
@@ -386,15 +370,15 @@
     <section class="mint-bg text-white">
         <h3 class="font-title text-xl text-white mb-12 uppercase tracking-widest reveal">Ubicaciones</h3>
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl w-full">
-            <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 reveal-left">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/church.png" class="w-10 h-10 mx-auto mb-4" alt="Church">
+            <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 reveal">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/church.png" class="w-10 h-10 mx-auto mb-4" alt="Iglesia">
                 <h4 class="font-title text-gold mb-2 uppercase text-[10px] tracking-widest font-bold">Ceremonia</h4>
                 <p class="text-3xl font-bold mb-1">17:30 H</p>
                 <p class="text-sm opacity-90 mb-6 italic">Santuario del Carmen</p>
                 <a href="https://www.google.com/maps?q=Templo+de+Nuestra+Se%C3%B1ora+del+Carmen,+Quer%C3%A9taro" target="_blank" class="btn-princess !text-[10px] !py-2">Ver Mapa</a>
             </div>
-            <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 reveal-right">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/castle.png" class="w-10 h-10 mx-auto mb-4" alt="Reception">
+            <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 reveal">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/castle.png" class="w-10 h-10 mx-auto mb-4" alt="Salón">
                 <h4 class="font-title text-gold mb-2 uppercase text-[10px] tracking-widest font-bold">Recepción</h4>
                 <p class="text-3xl font-bold mb-1">19:30 H</p>
                 <p class="text-sm opacity-90 mb-6 italic">Salón Gala Villagrán</p>
@@ -421,8 +405,8 @@
         </div>
     </section>
 
-    <!-- FOTO FINAL - Con Efecto de Entrada -->
-    <div class="photo-divider" style="background-image: url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg'); height: 350px;"></div>
+    <!-- FOTO FINAL -->
+    <div class="photo-divider" style="background-image: url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg'); height: 350px; background-position: center 30%;"></div>
 
     <footer class="py-12 dark-mint-bg text-white text-center">
         <p class="font-script text-5xl text-soft-gold mb-4 reveal">¡Te espero!</p>
@@ -448,24 +432,18 @@
             obtenerPasesDeUrl();
         }
 
-        // Observer para activar animaciones al hacer scroll con delays para la galería
         const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((e, index) => { 
                 if (e.isIntersecting) {
-                    // Si es un item de galería, aplicamos un pequeño delay escalonado
                     if (e.target.classList.contains('gallery-item')) {
-                        setTimeout(() => {
-                            e.target.classList.add('active');
-                        }, (index % 3) * 150); // Delay basado en su posición en la fila
-                    } else {
-                        e.target.classList.add('active'); 
-                    }
+                        setTimeout(() => { e.target.classList.add('active'); }, (index % 3) * 150);
+                    } else { e.target.classList.add('active'); }
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-blur, .gallery-item, .photo-divider').forEach(el => observer.observe(el));
+        document.querySelectorAll('.reveal, .reveal-blur, .gallery-item, .photo-divider').forEach(el => observer.observe(el));
 
         const targetDate = new Date('July 4, 2026 17:30:00').getTime();
         function updateCountdown() {
