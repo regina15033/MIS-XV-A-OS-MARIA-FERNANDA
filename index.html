@@ -105,7 +105,7 @@
             transform: translateY(-3px);
         }
 
-        /* Calendario - Reducción del 15% */
+        /* Calendario */
         .calendar {
             background: white;
             padding: 15px; 
@@ -192,6 +192,35 @@
             background-size: cover;
             border-top: 1px solid var(--gold);
             border-bottom: 1px solid var(--gold);
+        }
+
+        /* Galería */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 10px;
+            max-width: 600px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            aspect-ratio: 3/4;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .gallery-item.wide {
+            grid-column: span 2;
+            aspect-ratio: 16/9;
         }
 
         /* Modal Estilos */
@@ -328,6 +357,36 @@
         </div>
     </section>
 
+    <!-- GALERÍA DE FOTOS -->
+    <section class="!min-h-0 py-16 bg-white">
+        <h3 class="font-title text-xl mb-2 uppercase tracking-widest reveal">Galería</h3>
+        <div class="divider-gold mb-10"></div>
+        
+        <div class="gallery-grid mx-auto">
+            <div class="gallery-item wide reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="María Fernanda">
+            </div>
+            
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="XV Detalle">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Sesión Jardín">
+            </div>
+
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Foto 4">
+            </div>
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Foto 5">
+            </div>
+
+            <div class="gallery-item wide reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Recuerdo Final">
+            </div>
+        </div>
+    </section>
+
     <!-- UBICACIONES -->
     <section class="mint-bg text-white">
         <h3 class="font-title text-xl text-white mb-12 uppercase tracking-widest reveal">Ubicaciones</h3>
@@ -350,11 +409,11 @@
     <!-- CONFIRMACIÓN Y PASES -->
     <section class="reveal-blur">
         <div class="max-w-md w-full">
-            <h3 class="font-title text-xl mb-6 uppercase tracking-widest reveal">Pases Familiares</h3>
+            <h3 class="font-title text-xl mb-6 uppercase tracking-widest reveal">Pases</h3>
             <div class="p-10 border-2 border-mint-green rounded-3xl bg-white shadow-xl reveal">
-                <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-4 font-bold">Lugar Reservado Para:</p>
+                <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-4 font-bold">Hemos destinado para tí:</p>
                 <div class="text-7xl font-title mb-8 text-deep-mint" id="display-pases">01</div>
-                <p class="text-xs italic opacity-60 mb-6">Persona(s)</p>
+                <p class="text-xs italic opacity-60 mb-6">Pase(s)</p>
                 <button onclick="abrirModal()" class="btn-princess w-full">Confirmar Asistencia</button>
             </div>
             
@@ -366,8 +425,17 @@
         </div>
     </section>
 
+    <!-- FOTO FINAL DE DESPEDIDA -->
+    <section class="!min-h-[60vh] !py-0 relative overflow-hidden reveal-blur">
+        <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" 
+             class="w-full h-full object-cover absolute top-0 left-0 brightness-50" alt="María Fernanda Despedida">
+        <div class="relative z-10 px-4 py-20">
+            <p class="font-script text-5xl text-white mb-6 animate__animated animate__pulse animate__infinite">¡Te espero!</p>
+            <p class="font-title text-white text-[10px] tracking-[0.5em] uppercase">Será un honor compartir este día contigo</p>
+        </div>
+    </section>
+
     <footer class="py-12 dark-mint-bg text-white text-center">
-        <p class="font-script text-5xl text-soft-gold mb-4 reveal">¡Te espero!</p>
         <p class="text-[9px] tracking-[0.4em] opacity-60 uppercase reveal">María Fernanda • 2026</p>
     </footer>
 
@@ -409,7 +477,6 @@
             }
         }, 1000);
 
-        /* Lógica de Modal y Cantidad */
         function abrirModal() {
             document.getElementById('modal-confirmacion').style.display = 'flex';
             cantidadSeleccionada = 1;
@@ -424,7 +491,6 @@
 
         function cambiarCantidad(cambio) {
             let nueva = cantidadSeleccionada + cambio;
-            // Bloqueo: No menos de 1, no más que los pases asignados
             if (nueva >= 1 && nueva <= pasesGlobal) {
                 cantidadSeleccionada = nueva;
                 document.getElementById('cantidad-input').innerText = cantidadSeleccionada;
