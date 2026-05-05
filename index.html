@@ -125,7 +125,6 @@
         .day-name { font-weight: bold; color: var(--gold); margin-bottom: 5px; }
         .calendar-day { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; position: relative; }
         
-        /* Día 4: Blanco sobre Dorado */
         .special-day { 
             color: white !important; 
             font-weight: bold; 
@@ -148,7 +147,6 @@
             50% { transform: translate(-50%, -50%) scale(1.15); }
         }
 
-        /* Reveal Efectos */
         .reveal { 
             opacity: 0; 
             transform: translateY(30px); 
@@ -180,7 +178,6 @@
         }
         .reveal.active .divider-gold { width: 120px; }
 
-        /* Fuentes escaladas */
         .txt-title-lg { font-size: 3.5rem; line-height: 1; }
         .txt-script-lg { font-size: 4rem; }
         .date-title { font-size: 1.6rem; }
@@ -195,6 +192,18 @@
             background-size: cover;
             border-top: 1px solid var(--gold);
             border-bottom: 1px solid var(--gold);
+        }
+
+        /* Modal Estilos */
+        #modal-confirmacion {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
         }
 
         @media (max-width: 768px) {
@@ -212,6 +221,27 @@
     <audio id="bg-music" loop>
         <source src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/Ed%20Sheeran%20-%20Photograph%20Official%20Music%20Video.mp3" type="audio/mpeg">
     </audio>
+
+    <!-- Formulario de Confirmación (Modal) -->
+    <div id="modal-confirmacion" onclick="cerrarModal(event)">
+        <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-xs w-full text-center animate__animated animate__zoomIn" onclick="event.stopPropagation()">
+            <h4 class="font-title text-gold text-sm tracking-widest mb-4 uppercase">Confirmar Lugares</h4>
+            <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-6 font-bold">¿Cuántas personas asistirán?</p>
+            
+            <div class="flex items-center justify-center gap-6 mb-8">
+                <button onclick="cambiarCantidad(-1)" class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold font-bold">-</button>
+                <span id="cantidad-input" class="text-3xl font-title text-deep-mint">1</span>
+                <button onclick="cambiarCantidad(1)" class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold font-bold">+</button>
+            </div>
+
+            <p class="text-[10px] text-gray-400 mb-6 italic" id="limite-msg">Límite: 1 persona(s)</p>
+            
+            <input type="text" id="nombre-confirm" placeholder="Tu Nombre" class="w-full border-b border-gold/40 py-2 mb-6 text-center outline-none focus:border-gold">
+
+            <button onclick="enviarWhatsApp()" class="btn-princess w-full">Confirmar por WhatsApp</button>
+            <button onclick="cerrarModal(null)" class="mt-4 text-[10px] uppercase tracking-widest opacity-40">Cerrar</button>
+        </div>
+    </div>
 
     <!-- Pantalla de bienvenida -->
     <div id="welcome-screen">
@@ -305,7 +335,7 @@
             <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 reveal">
                 <h4 class="font-title text-gold mb-2 uppercase text-[10px] tracking-widest font-bold">Ceremonia</h4>
                 <p class="text-3xl font-bold mb-1">17:30 H</p>
-                <p class="text-sm opacity-90 mb-6 italic italic">Santuario del Carmen</p>
+                <p class="text-sm opacity-90 mb-6 italic">Santuario del Carmen</p>
                 <a href="https://maps.app.goo.gl/qM8P98rAAt8NnNn38" target="_blank" class="btn-princess !text-[10px] !py-2">Ver Mapa</a>
             </div>
             <div class="p-8 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 reveal">
@@ -325,7 +355,7 @@
                 <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-4 font-bold">Lugar Reservado Para:</p>
                 <div class="text-7xl font-title mb-8 text-deep-mint" id="display-pases">01</div>
                 <p class="text-xs italic opacity-60 mb-6">Persona(s)</p>
-                <button onclick="confirmar()" class="btn-princess w-full">Confirmar Asistencia</button>
+                <button onclick="abrirModal()" class="btn-princess w-full">Confirmar Asistencia</button>
             </div>
             
             <div class="mt-12 p-8 border border-gold/20 rounded-2xl bg-stone-50 reveal">
@@ -342,15 +372,16 @@
     </footer>
 
     <script>
-        let pasesGlobal = "01"; // Valor por defecto
+        let pasesGlobal = 1; 
+        let cantidadSeleccionada = 1;
 
-        // Esta función lee la URL: miweb.com/index.html?p=3
         function leerParametros() {
             const urlParams = new URLSearchParams(window.location.search);
             const p = urlParams.get('p');
             if (p) {
-                pasesGlobal = p.padStart(2, '0');
-                document.getElementById('display-pases').innerText = pasesGlobal;
+                pasesGlobal = parseInt(p);
+                document.getElementById('display-pases').innerText = pasesGlobal.toString().padStart(2, '0');
+                document.getElementById('limite-msg').innerText = `Límite: ${pasesGlobal} persona(s)`;
             }
         }
 
@@ -361,14 +392,12 @@
             document.getElementById('welcome-screen').classList.add('hidden');
         }
 
-        // Animaciones al hacer scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); });
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal, .reveal-blur').forEach(el => observer.observe(el));
 
-        // Cuenta regresiva
         const targetDate = new Date('July 4, 2026 17:30:00').getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -380,9 +409,37 @@
             }
         }, 1000);
 
-        function confirmar() {
-            const mensaje = `¡Hola María Fernanda! 👋\nConfirmo mi asistencia para mis ${pasesGlobal} pases.\n\n👤 Nombre: \n✅ Confirmamos: ___ personas.`;
+        /* Lógica de Modal y Cantidad */
+        function abrirModal() {
+            document.getElementById('modal-confirmacion').style.display = 'flex';
+            cantidadSeleccionada = 1;
+            document.getElementById('cantidad-input').innerText = 1;
+        }
+
+        function cerrarModal(e) {
+            if (!e || e.target === document.getElementById('modal-confirmacion')) {
+                document.getElementById('modal-confirmacion').style.display = 'none';
+            }
+        }
+
+        function cambiarCantidad(cambio) {
+            let nueva = cantidadSeleccionada + cambio;
+            // Bloqueo: No menos de 1, no más que los pases asignados
+            if (nueva >= 1 && nueva <= pasesGlobal) {
+                cantidadSeleccionada = nueva;
+                document.getElementById('cantidad-input').innerText = cantidadSeleccionada;
+            }
+        }
+
+        function enviarWhatsApp() {
+            const nombre = document.getElementById('nombre-confirm').value.trim();
+            if (!nombre) {
+                alert("Por favor, ingresa tu nombre.");
+                return;
+            }
+            const mensaje = `¡Hola María Fernanda! 👋\nSoy ${nombre}, confirmo mi asistencia a tus XV años.\n\n✅ Confirmamos: ${cantidadSeleccionada} de ${pasesGlobal} pases reservados.`;
             window.open(`https://wa.me/524424853246?text=${encodeURIComponent(mensaje)}`);
+            cerrarModal();
         }
 
         window.onload = leerParametros;
