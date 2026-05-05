@@ -90,6 +90,8 @@
             text-transform: uppercase;
             cursor: pointer;
             font-size: 0.85rem;
+            display: inline-block;
+            text-decoration: none;
         }
 
         .btn-princess:hover {
@@ -348,7 +350,7 @@
 
     <!-- GALERÍA COMPLETA (10 fotos en total) -->
     <section class="bg-white py-16 !min-h-0">
-        <h3 class="font-title text-xl mb-2 uppercase tracking-widest reveal">Nuestra Galería</h3>
+        <h3 class="font-title text-xl mb-2 uppercase tracking-widest reveal"> Galería</h3>
         <div class="divider-gold mb-12"></div>
         <div class="gallery-vertical mx-auto">
             <div class="gallery-item reveal">
@@ -375,7 +377,6 @@
             <div class="gallery-item reveal">
                 <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="XV Años Sueño Hecho Realidad">
             </div>
-            <!-- Dos fotos nuevas añadidas para completar 10 -->
             <div class="gallery-item reveal">
                 <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="María Fernanda Elegancia">
             </div>
@@ -385,26 +386,32 @@
         </div>
     </section>
 
-    <!-- UBICACIONES -->
+    <!-- UBICACIONES AJUSTADAS -->
     <section class="mint-bg text-white">
         <h3 class="font-title text-2xl text-white mb-16 uppercase tracking-[0.3em] reveal">Ubicaciones</h3>
-        <div class="grid md:grid-cols-2 gap-10 max-w-4xl w-full">
-            <div class="p-10 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 reveal">
+        <div class="grid md:grid-cols-2 gap-10 max-w-4xl w-full px-4">
+            <!-- Card 1 -->
+            <div class="flex flex-col p-10 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 reveal h-full">
                 <h4 class="font-title text-gold mb-4 uppercase text-xs tracking-widest font-bold">Ceremonia Religiosa</h4>
                 <p class="text-4xl font-bold mb-2">17:30 H</p>
-                <p class="text-sm opacity-90 mb-8 italic">Santuario del Carmen</p>
-                <a href="https://maps.app.goo.gl/qM8P98rAAt8NnNn38" target="_blank" class="btn-princess !text-xs !py-3">📍 Cómo Llegar</a>
+                <p class="text-sm opacity-90 mb-8 italic flex-grow">Santuario del Carmen</p>
+                <div class="mt-auto">
+                    <a href="https://maps.app.goo.gl/qM8P98rAAt8NnNn38" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
+                </div>
             </div>
-            <div class="p-10 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 reveal">
+            <!-- Card 2 -->
+            <div class="flex flex-col p-10 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 reveal h-full">
                 <h4 class="font-title text-gold mb-4 uppercase text-xs tracking-widest font-bold">Recepción</h4>
                 <p class="text-4xl font-bold mb-2">19:30 H</p>
-                <p class="text-sm opacity-90 mb-8 italic">Salón Gala Villagrán</p>
-                <a href="https://maps.app.goo.gl/K6V8Z2B7Hn9G4E6C9" target="_blank" class="btn-princess !text-xs !py-3">📍 Cómo Llegar</a>
+                <p class="text-sm opacity-90 mb-8 italic flex-grow">Salón Gala Villagrán</p>
+                <div class="mt-auto">
+                    <a href="https://maps.app.goo.gl/K6V8Z2B7Hn9G4E6C9" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PASES -->
+    <!-- PASES Y MESA DE REGALOS AJUSTADA -->
     <section class="bg-white !min-h-0 py-20">
         <div class="max-w-md w-full px-4 text-center">
             <h3 class="font-title text-xl mb-10 uppercase tracking-widest reveal text-mint">Pases Reservados</h3>
@@ -416,11 +423,11 @@
                 <button onclick="abrirModal()" class="btn-princess btn-confirm-mint w-full">Confirmar Ahora</button>
             </div>
             
-            <div class="mt-16 p-10 border border-gold/30 rounded-3xl bg-mint-bg/5 reveal">
+            <div class="mt-16 p-10 border border-gold/30 rounded-3xl bg-mint-bg/5 reveal flex flex-col items-center">
                 <h3 class="font-title text-xs mb-6 uppercase tracking-widest text-mint">Mesa de Regalos</h3>
                 <p class="text-[11px] uppercase tracking-widest mb-8 font-bold text-gray-500 italic">Tu presencia es mi mejor regalo, pero si deseas obsequiarme algo:</p>
                 <p class="text-sm font-bold text-mint mb-8">LIVERPOOL • COD: 51986769</p>
-                <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51986769" target="_blank" class="btn-princess">Ver Detalles</a>
+                <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51986769" target="_blank" class="btn-princess w-full">Ver Detalles</a>
             </div>
         </div>
     </section>
@@ -500,10 +507,10 @@
         function enviarWhatsApp() {
             const nombre = document.getElementById('nombre-confirm').value.trim();
             if (!nombre) {
-                alert("Por favor, ingresa tu nombre.");
+                alert("Por favor, ingresa tu nombre completo.");
                 return;
             }
-            const mensaje = `¡Hola María Fernanda! 👋\nSoy ${nombre}, confirmo mi asistencia a tus XV años.\n\n✅ Lugares confirmados: ${cantidadSeleccionada} de ${pasesGlobal} reservados.`;
+            const mensaje = `¡Hola! 👋\nSoy ${nombre}, confirmo mi asistencia a los XV años de María Fernanda.\n\n✅ Lugares confirmados: ${cantidadSeleccionada} de ${pasesGlobal} reservados.`;
             window.open(`https://wa.me/524424853246?text=${encodeURIComponent(mensaje)}`);
             cerrarModal();
         }
