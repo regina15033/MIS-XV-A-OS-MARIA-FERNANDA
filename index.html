@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -234,6 +235,10 @@
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .text-shadow {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
@@ -242,7 +247,7 @@
         <source src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/Ed%20Sheeran%20-%20Photograph%20Official%20Music%20Video.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Modal -->
+    <!-- Modal de Confirmación -->
     <div id="modal-confirmacion" onclick="cerrarModal(event)">
         <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-xs w-full text-center animate__animated animate__zoomIn" onclick="event.stopPropagation()">
             <h4 class="font-title text-gold text-sm tracking-widest mb-4 uppercase">Confirmar Lugares</h4>
@@ -280,7 +285,7 @@
         </div>
     </section>
 
-    <!-- FECHA -->
+    <!-- FECHA Y CUENTA REGRESIVA -->
     <section class="!py-16">
         <h2 class="font-title text-xl mb-2 tracking-[0.3em] uppercase reveal text-mint">Reserva la Fecha</h2>
         <div class="divider-gold"></div>
@@ -300,8 +305,7 @@
         </div>
 
         <div class="mt-12">
-            <p class="font-title text-sm tracking-[0.4em] uppercase text-mint font-bold mb-4 animate-pulse reveal" style="text-shadow: 1px 1px 2px rgba(181, 196, 161, 0.4);">Faltan</p>
-            <!-- Cuenta regresiva con Segundos añadidos -->
+            <p class="font-title text-sm tracking-[0.4em] uppercase text-mint font-bold mb-4 animate-pulse reveal">Faltan</p>
             <div id="countdown" class="flex gap-6 md:gap-10 justify-center reveal transform scale-110">
                 <div class="text-center">
                     <span id="days" class="text-3xl md:text-4xl font-title text-mint">00</span>
@@ -348,70 +352,49 @@
         </div>
     </section>
 
-    <!-- GALERÍA COMPLETA (10 fotos en total) -->
+    <!-- GALERÍA -->
     <section class="bg-white py-16 !min-h-0">
-        <h3 class="font-title text-xl mb-2 uppercase tracking-widest reveal"> Galería</h3>
+        <h3 class="font-title text-xl mb-2 uppercase tracking-widest reveal">Nuestra Galería</h3>
         <div class="divider-gold mb-12"></div>
         <div class="gallery-vertical mx-auto">
             <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="María Fernanda Retrato Principal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Retrato María Fernanda">
             </div>
             <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Sesión de Fotos Elegante">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Sesión de Fotos">
             </div>
             <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Detalle de Vestido">
-            </div>
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Momentos Especiales">
-            </div>
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Sonrisa Inolvidable">
-            </div>
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Preparativos XV">
-            </div>
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Festejando la Vida">
-            </div>
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="XV Años Sueño Hecho Realidad">
-            </div>
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="María Fernanda Elegancia">
-            </div>
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Recuerdos de mis XV">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Vestido de María Fernanda">
             </div>
         </div>
     </section>
 
-    <!-- UBICACIONES AJUSTADAS -->
+    <!-- UBICACIONES ACTUALIZADAS -->
     <section class="mint-bg text-white">
         <h3 class="font-title text-2xl text-white mb-16 uppercase tracking-[0.3em] reveal">Ubicaciones</h3>
         <div class="grid md:grid-cols-2 gap-10 max-w-4xl w-full px-4">
-            <!-- Card 1 -->
+            <!-- Ceremonia -->
             <div class="flex flex-col p-10 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 reveal h-full">
                 <h4 class="font-title text-gold mb-4 uppercase text-xs tracking-widest font-bold">Ceremonia Religiosa</h4>
                 <p class="text-4xl font-bold mb-2">17:30 H</p>
                 <p class="text-sm opacity-90 mb-8 italic flex-grow">Santuario del Carmen</p>
                 <div class="mt-auto">
-                    <a href="https://maps.app.goo.gl/qM8P98rAAt8NnNn38" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
+                    <a href="https://maps.app.goo.gl/g6aH9jWxCTrbK6NW7?g_st=iw" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
                 </div>
             </div>
-            <!-- Card 2 -->
+            <!-- Recepción -->
             <div class="flex flex-col p-10 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 reveal h-full">
                 <h4 class="font-title text-gold mb-4 uppercase text-xs tracking-widest font-bold">Recepción</h4>
                 <p class="text-4xl font-bold mb-2">19:30 H</p>
                 <p class="text-sm opacity-90 mb-8 italic flex-grow">Salón Gala Villagrán</p>
                 <div class="mt-auto">
-                    <a href="https://maps.app.goo.gl/K6V8Z2B7Hn9G4E6C9" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
+                    <a href="https://maps.app.goo.gl/Wsm7GnceURHp2HKx8?g_st=iw" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PASES Y MESA DE REGALOS AJUSTADA -->
+    <!-- PASES Y MESA DE REGALOS -->
     <section class="bg-white !min-h-0 py-20">
         <div class="max-w-md w-full px-4 text-center">
             <h3 class="font-title text-xl mb-10 uppercase tracking-widest reveal text-mint">Pases Reservados</h3>
@@ -422,19 +405,16 @@
                 <p class="text-xs italic opacity-60 mb-10">Persona(s)</p>
                 <button onclick="abrirModal()" class="btn-princess btn-confirm-mint w-full">Confirmar Ahora</button>
             </div>
-            
-            <div class="mt-16 p-10 border border-gold/30 rounded-3xl bg-mint-bg/5 reveal flex flex-col items-center">
+            <div class="mt-16 p-10 border border-gold/30 rounded-3xl reveal flex flex-col items-center">
                 <h3 class="font-title text-xs mb-6 uppercase tracking-widest text-mint">Mesa de Regalos</h3>
-                <p class="text-[11px] uppercase tracking-widest mb-8 font-bold text-gray-500 italic">Tu presencia es mi mejor regalo, pero si deseas obsequiarme algo:</p>
-                <p class="text-sm font-bold text-mint mb-8">LIVERPOOL • COD: 51986769</p>
+                <p class="text-[11px] uppercase tracking-widest mb-8 font-bold text-gray-500 italic text-center">LIVERPOOL • COD: 51986769</p>
                 <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51986769" target="_blank" class="btn-princess w-full">Ver Detalles</a>
             </div>
         </div>
     </section>
 
-  <!-- CIERRE: "TE ESPERO" ARRIBA Y "MARÍA FERNANDA" ABAJO -->
+    <!-- CIERRE AJUSTADO -->
     <section class="!min-h-[90vh] relative flex flex-col justify-between p-0">
-        <!-- Imagen de fondo -->
         <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" 
              class="w-full h-full object-cover absolute top-0 left-0 brightness-[0.85]" 
              style="object-position: center 15%;" 
@@ -445,7 +425,7 @@
             <p class="font-script text-7xl md:text-8xl text-white animate__animated animate__fadeInDown text-shadow">¡Te espero!</p>
         </div>
 
-        <!-- Texto Inferior con degradado -->
+        <!-- Texto Inferior -->
         <div class="relative z-10 w-full p-12 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
             <p class="font-title text-white text-[12px] md:text-[14px] tracking-[0.6em] uppercase opacity-90 text-shadow mb-2">María Fernanda</p>
             <p class="text-white/60 text-[10px] tracking-[0.4em] uppercase">2026</p>
@@ -518,10 +498,9 @@
         function enviarWhatsApp() {
             const nombre = document.getElementById('nombre-confirm').value.trim();
             if (!nombre) {
-                alert("Por favor, ingresa tu nombre completo.");
-                return;
+                return; // Opcional: mostrar un mensaje visual en lugar de alert
             }
-            const mensaje = `¡Hola! 👋\nSoy ${nombre}, confirmo mi asistencia a los XV años de María Fernanda.\n\n✅ Lugares confirmados: ${cantidadSeleccionada} de ${pasesGlobal} reservados.`;
+            const mensaje = `¡Hola María Fernanda! 👋\nSoy ${nombre}, confirmo mi asistencia a tus XV años.\n\n✅ Lugares confirmados: ${cantidadSeleccionada} de ${pasesGlobal} reservados.`;
             window.open(`https://wa.me/524424853246?text=${encodeURIComponent(mensaje)}`);
             cerrarModal();
         }
@@ -530,3 +509,5 @@
     </script>
 </body>
 </html>
+
+```
