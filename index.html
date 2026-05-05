@@ -194,33 +194,31 @@
             border-bottom: 1px solid var(--gold);
         }
 
-        /* Galería */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 10px;
-            max-width: 600px;
+        /* Galería Vertical */
+        .gallery-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            padding: 20px;
+            max-width: 500px;
+            width: 100%;
         }
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 20px;
-            aspect-ratio: 3/4;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 4px solid white;
         }
         .gallery-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: block;
+            height: auto;
+            transition: transform 0.8s ease;
         }
         .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-        .gallery-item.wide {
-            grid-column: span 2;
-            aspect-ratio: 16/9;
+            transform: scale(1.05);
         }
 
         /* Modal Estilos */
@@ -316,18 +314,22 @@
 
         <div class="mt-8">
             <p class="font-title text-[9px] tracking-[0.4em] uppercase text-deep-mint opacity-70 mb-4 animate-pulse reveal">Faltan</p>
-            <div id="countdown" class="flex gap-6 justify-center reveal">
+            <div id="countdown" class="flex gap-4 md:gap-6 justify-center reveal">
                 <div class="text-center">
-                    <span id="days" class="text-2xl font-title text-gold">00</span>
+                    <span id="days" class="text-xl md:text-2xl font-title text-gold">00</span>
                     <p class="text-[7px] uppercase tracking-[0.2em] mt-1 font-bold">Días</p>
                 </div>
                 <div class="text-center">
-                    <span id="hours" class="text-2xl font-title text-gold">00</span>
+                    <span id="hours" class="text-xl md:text-2xl font-title text-gold">00</span>
                     <p class="text-[7px] uppercase tracking-[0.2em] mt-1 font-bold">Hrs</p>
                 </div>
                 <div class="text-center">
-                    <span id="minutes" class="text-2xl font-title text-gold">00</span>
+                    <span id="minutes" class="text-xl md:text-2xl font-title text-gold">00</span>
                     <p class="text-[7px] uppercase tracking-[0.2em] mt-1 font-bold">Min</p>
+                </div>
+                <div class="text-center">
+                    <span id="seconds" class="text-xl md:text-2xl font-title text-gold">00</span>
+                    <p class="text-[7px] uppercase tracking-[0.2em] mt-1 font-bold">Seg</p>
                 </div>
             </div>
         </div>
@@ -357,32 +359,60 @@
         </div>
     </section>
 
-    <!-- GALERÍA DE FOTOS -->
+    <!-- GALERÍA DE FOTOS (Vertical Ampliada con 10 fotos) -->
     <section class="!min-h-0 py-16 bg-white">
-        <h3 class="font-title text-xl mb-2 uppercase tracking-widest reveal">Galería</h3>
+        <h3 class="font-title text-xl mb-2 uppercase tracking-widest reveal">Nuestra Galería</h3>
         <div class="divider-gold mb-10"></div>
         
-        <div class="gallery-grid mx-auto">
-            <div class="gallery-item wide reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="María Fernanda">
+        <div class="gallery-vertical mx-auto">
+            <!-- Foto 1 -->
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Foto 1 - María Fernanda">
             </div>
             
+            <!-- Foto 2 -->
             <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="XV Detalle">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Foto 2 - XV Años">
             </div>
+            
+            <!-- Foto 3 -->
             <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Sesión Jardín">
-            </div>
-
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Foto 4">
-            </div>
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Foto 5">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Foto 3 - Sesión Especial">
             </div>
 
-            <div class="gallery-item wide reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Recuerdo Final">
+            <!-- Foto 4 -->
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Foto 4 - Sonrisa">
+            </div>
+
+            <!-- Foto 5 -->
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Foto 5 - Jardín">
+            </div>
+
+            <!-- Foto 6 (Nueva) -->
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Foto 6 - Recuerdo">
+            </div>
+
+            <!-- Foto 7 (Nueva) -->
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Foto 7 - Brillo">
+            </div>
+
+            <!-- Foto 8 (Nueva) -->
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Foto 8 - Elegancia">
+            </div>
+
+            <!-- Foto 9 (Nueva) -->
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Foto 9 - Mirada">
+            </div>
+
+            <!-- Foto 10 (Nueva) -->
+            <div class="gallery-item reveal">
+                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Foto 10 - Final">
             </div>
         </div>
     </section>
@@ -411,9 +441,9 @@
         <div class="max-w-md w-full">
             <h3 class="font-title text-xl mb-6 uppercase tracking-widest reveal">Pases</h3>
             <div class="p-10 border-2 border-mint-green rounded-3xl bg-white shadow-xl reveal">
-                <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-4 font-bold">Hemos destinado para tí:</p>
+                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-4 font-bold">Hemos reservado para ti:</p>
                 <div class="text-7xl font-title mb-8 text-deep-mint" id="display-pases">01</div>
-                <p class="text-xs italic opacity-60 mb-6">Pase(s)</p>
+                <p class="text-xs italic opacity-60 mb-6">Persona(s)</p>
                 <button onclick="abrirModal()" class="btn-princess w-full">Confirmar Asistencia</button>
             </div>
             
@@ -426,12 +456,12 @@
     </section>
 
     <!-- FOTO FINAL DE DESPEDIDA -->
-    <section class="!min-h-[60vh] !py-0 relative overflow-hidden reveal-blur">
+    <section class="!min-h-[70vh] !py-0 relative overflow-hidden flex flex-col justify-end reveal-blur">
         <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" 
-             class="w-full h-full object-cover absolute top-0 left-0 brightness-50" alt="María Fernanda Despedida">
-        <div class="relative z-10 px-4 py-20">
-            <p class="font-script text-5xl text-white mb-6 animate__animated animate__pulse animate__infinite">¡Te espero!</p>
-            <p class="font-title text-white text-[10px] tracking-[0.5em] uppercase">Será un honor compartir este día contigo</p>
+             class="w-full h-full object-cover absolute top-0 left-0 brightness-[0.7]" alt="María Fernanda Despedida">
+        <div class="relative z-10 px-4 pb-12 pt-40 w-full bg-gradient-to-t from-black/60 via-transparent to-transparent">
+            <p class="font-script text-6xl text-white mb-4 animate__animated animate__pulse animate__infinite text-shadow-lg">¡Te espero!</p>
+            <p class="font-title text-white text-[11px] tracking-[0.5em] uppercase text-shadow-md">Será un honor compartir este día contigo</p>
         </div>
     </section>
 
@@ -466,6 +496,7 @@
 
         document.querySelectorAll('.reveal, .reveal-blur').forEach(el => observer.observe(el));
 
+        // Cuenta regresiva
         const targetDate = new Date('July 4, 2026 17:30:00').getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -474,6 +505,7 @@
                 document.getElementById('days').innerText = Math.floor(diff / 86400000).toString().padStart(2, '0');
                 document.getElementById('hours').innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
                 document.getElementById('minutes').innerText = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
             }
         }, 1000);
 
