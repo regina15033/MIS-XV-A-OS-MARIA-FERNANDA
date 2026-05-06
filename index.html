@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,7 +38,7 @@
         .font-title { font-family: 'Cinzel Decorative', serif; }
         .font-script { font-family: 'Great Vibes', cursive; }
 
-        /* Pantalla de Inicio */
+        /* Welcome Screen */
         #welcome-screen {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -64,7 +65,7 @@
             overflow: hidden;
         }
 
-        /* Portada */
+        /* Header */
         .page-header {
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.35)), url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg');
             background-size: cover;
@@ -106,7 +107,7 @@
             border: none !important;
         }
 
-        /* Calendario */
+        /* Calendar */
         .calendar {
             background: white;
             padding: 15px; 
@@ -239,10 +240,10 @@
             text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         }
 
-        /* Estilo para la imagen del Dress Code con recorte superior del 20% */
+        /* Dress Code Image Style with 20% top crop */
         .dress-code-container {
             width: 150px;
-            height: 160px; /* Reducido para ajustarse al recorte */
+            height: 160px; 
             margin: 2rem auto;
             overflow: hidden;
             display: flex;
@@ -254,7 +255,7 @@
             width: 100%;
             height: auto;
             object-fit: contain;
-            /* Desplaza la imagen hacia arriba un 20% para recortar el espacio en blanco superior */
+            /* Shift up 20% to crop the top blank space */
             transform: translateY(-20%); 
         }
     </style>
@@ -265,7 +266,7 @@
         <source src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/Ed%20Sheeran%20-%20Photograph%20Official%20Music%20Video.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Modal de confirmación -->
+    <!-- Confirm Modal -->
     <div id="modal-confirmacion" onclick="cerrarModal(event)">
         <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-xs w-full text-center animate__animated animate__zoomIn" onclick="event.stopPropagation()">
             <h4 class="font-title text-gold text-sm tracking-widest mb-4 uppercase">Confirmar Lugares</h4>
@@ -280,7 +281,7 @@
         </div>
     </div>
 
-    <!-- Pantalla de bienvenida -->
+    <!-- Welcome Screen -->
     <div id="welcome-screen">
         <div class="text-center p-8 bg-white/10 backdrop-blur-lg rounded-[2rem] border border-white/20 shadow-xl mx-4">
             <h2 class="font-title text-white text-xl tracking-[0.4em] mb-6 animate__animated animate__zoomIn uppercase">María Fernanda</h2>
@@ -291,7 +292,7 @@
         </div>
     </div>
 
-    <!-- PORTADA -->
+    <!-- MAIN COVER -->
     <section class="page-header">
         <div class="z-20 px-4 mt-auto mb-20 md:mb-12">
             <h2 class="text-lg tracking-[0.4em] mb-4 font-light text-white text-glow-strong stagger-in uppercase" style="animation-delay: 0.5s;">Bienvenidos</h2>
@@ -303,7 +304,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN FECHA -->
+    <!-- DATE SECTION -->
     <section class="!py-16">
         <h2 class="font-title text-xl mb-2 tracking-[0.3em] uppercase reveal text-mint">Reserva la Fecha</h2>
         <div class="divider-gold"></div>
@@ -345,14 +346,14 @@
         </div>
     </section>
 
-    <!-- DIVISOR CON FOTO -->
+    <!-- PHOTO DIVIDER -->
     <div class="photo-divider" style="background-image: url('https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg');"></div>
 
-    <!-- SECCIÓN PADRES -->
+    <!-- FAMILY SECTION -->
     <section class="mint-bg">
         <div class="max-w-3xl px-6">
             <p class="text-3xl font-script leading-relaxed mb-16 italic reveal text-white">
-                "Hoy celebro la alegría de vivir, el amor de mi familia y la blessing de mis amigos."
+                "Hoy celebro la alegría de vivir, el amor de mi familia y la bendición de mis amigos."
             </p>
             <div class="grid md:grid-cols-2 gap-10 text-center">
                 <div class="p-10 bg-white shadow-xl rounded-3xl border-t-4 border-gold reveal">
@@ -371,88 +372,56 @@
         </div>
     </section>
 
-    <!-- GALERÍA VERTICAL COMPLETA (11 FOTOS) -->
+    <!-- GALLERY SECTION -->
     <section class="bg-white py-16 !min-h-0">
         <h3 class="font-title text-xl mb-2 uppercase tracking-widest reveal">Galería</h3>
         <div class="divider-gold mb-12"></div>
         <div class="gallery-vertical mx-auto">
-            <!-- Foto 1 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Sesión XV María Fernanda">
-            </div>
-            <!-- Foto 2 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg" alt="Sesión XV María Fernanda 1">
-            </div>
-            <!-- Foto 3 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Sesión XV María Fernanda 2">
-            </div>
-            <!-- Foto 4 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(3).jpeg" alt="Sesión XV María Fernanda 3">
-            </div>
-            <!-- Foto 5 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(4).jpeg" alt="Sesión XV María Fernanda 4">
-            </div>
-            <!-- Foto 6 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(5).jpeg" alt="Sesión XV María Fernanda 5">
-            </div>
-            <!-- Foto 7 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(6).jpeg" alt="Sesión XV María Fernanda 6">
-            </div>
-            <!-- Foto 8 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(7).jpeg" alt="Sesión XV María Fernanda 7">
-            </div>
-            <!-- Foto 9 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(8).jpeg" alt="Sesión XV María Fernanda 8">
-            </div>
-            <!-- Foto 10 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(9).jpeg" alt="Sesión XV María Fernanda 9">
-            </div>
-            <!-- Foto 11 -->
-            <div class="gallery-item reveal">
-                <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Sesión XV María Fernanda Portada">
-            </div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" alt="Sesión XV 1"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(1).jpeg" alt="Sesión XV 2"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(2).jpeg" alt="Sesión XV 3"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(3).jpeg" alt="Sesión XV 4"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(4).jpeg" alt="Sesión XV 5"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(5).jpeg" alt="Sesión XV 6"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(6).jpeg" alt="Sesión XV 7"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(7).jpeg" alt="Sesión XV 8"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(8).jpeg" alt="Sesión XV 9"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM%20(9).jpeg" alt="Sesión XV 10"></div>
+            <div class="gallery-item reveal"><img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.56%20PM.jpeg" alt="Sesión XV Portada"></div>
         </div>
     </section>
 
-    <!-- UBICACIONES -->
+    <!-- LOCATIONS SECTION -->
     <section class="mint-bg text-white">
         <h3 class="font-title text-2xl text-white mb-16 uppercase tracking-[0.3em] reveal">Ubicaciones</h3>
         <div class="grid md:grid-cols-2 gap-10 max-w-4xl w-full px-4">
+            <!-- Church -->
             <div class="flex flex-col p-10 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 reveal h-full">
                 <h4 class="font-title text-gold mb-4 uppercase text-xs tracking-widest font-bold">Ceremonia Religiosa</h4>
                 <p class="text-4xl font-bold mb-2">17:30 H</p>
                 <p class="text-sm opacity-90 mb-8 italic flex-grow">Santuario del Carmen</p>
                 <div class="mt-auto">
-                    <a href="https://maps.app.goo.gl/qM8P98rAAt8NnNn38" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
+                    <a href="https://maps.app.goo.gl/g6aH9jWxCTrbK6NW7?g_st=iw" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
                 </div>
             </div>
+            <!-- Reception -->
             <div class="flex flex-col p-10 bg-white/10 backdrop-blur-md rounded-3xl border border-white/30 reveal h-full">
                 <h4 class="font-title text-gold mb-4 uppercase text-xs tracking-widest font-bold">Recepción</h4>
                 <p class="text-4xl font-bold mb-2">19:30 H</p>
                 <p class="text-sm opacity-90 mb-8 italic flex-grow">Salón Gala Villagrán</p>
                 <div class="mt-auto">
-                    <a href="https://maps.app.goo.gl/K6V8Z2B7Hn9G4E6C9" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
+                    <a href="https://maps.app.goo.gl/Wsm7GnceURHp2HKx8?g_st=iw" target="_blank" class="btn-princess !text-xs !py-3 w-full">📍 Cómo Llegar</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CÓDIGO DE VESTIMENTA -->
+    <!-- DRESS CODE SECTION -->
     <section class="bg-white !min-h-0 py-16">
         <div class="max-w-2xl mx-auto px-6 text-center reveal">
             <h3 class="font-title text-xl mb-4 uppercase tracking-[0.3em] text-mint">Código de Vestimenta</h3>
             <div class="divider-gold mb-4"></div>
             
-            <!-- Contenedor ajustado para el recorte -->
             <div class="dress-code-container reveal">
                 <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/137441-removebg-preview.png" 
                      class="dress-code-img"
@@ -478,7 +447,7 @@
         </div>
     </section>
 
-    <!-- PASES -->
+    <!-- TICKETS SECTION -->
     <section class="bg-gray-50 !min-h-0 py-20">
         <div class="max-w-md w-full px-4 text-center">
             <h3 class="font-title text-xl mb-10 uppercase tracking-widest reveal text-mint">Pases Reservados</h3>
@@ -489,6 +458,7 @@
                 <p class="text-xs italic opacity-60 mb-10">Persona(s)</p>
                 <button onclick="abrirModal()" class="btn-princess btn-confirm-mint w-full">Confirmar Ahora</button>
             </div>
+            <!-- Gift Table -->
             <div class="mt-16 p-10 border border-gold/30 rounded-3xl reveal flex flex-col items-center">
                 <h3 class="font-title text-xs mb-6 uppercase tracking-widest text-mint">Mesa de Regalos</h3>
                 <p class="text-[11px] uppercase tracking-widest mb-8 font-bold text-gray-500 italic">LIVERPOOL • COD: 51986769</p>
@@ -497,7 +467,7 @@
         </div>
     </section>
 
-    <!-- CIERRE -->
+    <!-- CLOSING SECTION -->
     <section class="!min-h-[90vh] relative flex flex-col justify-between p-0">
         <img src="https://raw.githubusercontent.com/regina15033/MIS-XV-A-OS-MARIA-FERNANDA/main/WhatsApp%20Image%202026-04-26%20at%205.47.57%20PM.jpeg" 
              class="w-full h-full object-cover absolute top-0 left-0 brightness-[0.85]" 
